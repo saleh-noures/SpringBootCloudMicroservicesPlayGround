@@ -12,7 +12,7 @@
         -Microservices
         -API Gateway
 ## B-Jason Web Token (JWT)
-        -JWT is used to as users authentication mechanism
+        -JWT is used as users authentication mechanism
         -After Creating a user, the user will need to login to get a Json Web Token (JWT) to be authenticated for the subsequent requests.
         -The AuthenticationFilter in UserClient will create the Token using the "token.secret" property after a successfull login, add it to the header with Key "token", and then send it back to the user
         -The user will use the token in the subsequent request by adding it to the header under Key "Authorization" and Value "Bearer  token_text"

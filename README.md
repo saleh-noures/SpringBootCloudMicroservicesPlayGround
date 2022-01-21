@@ -38,6 +38,6 @@
         -To see the configrations (properties) applied to users-WS Microservice -->  http://localhost:8012/users-ws/default
         -To health check users-WS Microservice using actuator --> http://localhost:8082/users-ws/actuator/health  
         
- ## Password Encryption
+ ## D-Password Encryption
         - Passwords are encrypted in the database
         - Using Spring BCryptPasswordEncoder

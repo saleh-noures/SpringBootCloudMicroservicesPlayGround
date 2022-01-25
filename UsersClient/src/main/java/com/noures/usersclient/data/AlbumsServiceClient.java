@@ -21,6 +21,7 @@ public interface AlbumsServiceClient {
 
 
 	/** You create the interface and Spring Framework will provide the implementation **/
+	/** To Test FeignErrorDecoder change to /users/{id}/albumsss**/
 	@GetMapping("/users/{id}/albums")
 	public List<AlbumResponseModel> getAlbums(@PathVariable String id);
 }

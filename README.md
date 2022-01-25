@@ -37,7 +37,15 @@
         -To push configraton changes to the Microservices (Verified to be working on GitHub config repo only) --> http://localhost:8012/actuator/busrefresh
         -To see the configrations (properties) applied to users-WS Microservice -->  http://localhost:8012/users-ws/default
         -To health check users-WS Microservice using actuator --> http://localhost:8082/users-ws/actuator/health  
+        -To get users and their albums (Using Feign Http Client) --> GET http://localhost:8082/users-ws/users/{userID} and in the header add
+          Key: Authorization
+          Value: Bearer JWT_Token
         
  ## D-Password Encryption
         - Passwords are encrypted in the database
         - Using Spring BCryptPasswordEncoder
+ ## E- Feign Http Clint 
+         - Feign is used for the internal communications between the Microservices FeignErrorDecoder
+         - Feign ErrorDecoder is used to handle the errors 
+         
+         

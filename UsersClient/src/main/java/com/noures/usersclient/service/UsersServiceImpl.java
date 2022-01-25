@@ -94,7 +94,7 @@ public class UsersServiceImpl implements UsersService {
 
         UserDto userDto = new ModelMapper().map(userEntity, UserDto.class);
 
-        /** This code will use RestTemplate to call Albums Microservice **/
+        /** This code will use **RestTemplate** to call Albums Microservice **/
        /*
        String albumsUrl = String.format(environment.getProperty("albums.url"), userId);
 

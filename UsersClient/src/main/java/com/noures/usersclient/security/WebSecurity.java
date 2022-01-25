@@ -34,6 +34,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/actuator/**").permitAll()
                 .antMatchers("/users/**").permitAll().and().addFilter(getAuthenticationFilter());
+
+        /** THis will permit/allow only the requests from the API Gateway to reach the Microservice **/
         //http.authorizeRequests().antMatchers("/**").hasIpAddress(environment.getProperty("gateway.ip")).and().addFilter(getAuthenticationFilter());
 
         //This is required for H2

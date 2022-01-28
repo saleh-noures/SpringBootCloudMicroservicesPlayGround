@@ -12,10 +12,10 @@
         -Microservices
         -API Gateway
 ## B-Microservices
-There are 3 dummy Microservices in this project
--users-ws
--albums-ws
--account-ws
+        There are 3 dummy Microservices in this project
+        -users-ws
+        -albums-ws
+        -account-ws
 
 ## C-Jason Web Token (JWT)
         -JWT is used as users authentication mechanism

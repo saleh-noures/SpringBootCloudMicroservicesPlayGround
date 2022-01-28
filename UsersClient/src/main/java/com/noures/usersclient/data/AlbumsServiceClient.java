@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.noures.usersclient.ui.model.AlbumResponseModel;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +15,9 @@ public interface AlbumsServiceClient {
 
 	/** You create the interface and Spring Framework will provide the implementation **/
 	/** To Test FeignErrorDecoder change to /users/{id}/albumsss or stop albums Microservice **/
+	/** If you use Retry alone with the Circuit Breaker then you need to add fallbackMethod attribute to Retry **/
 	@GetMapping("/users/{id}/albums")
+	@Retry(name = "albums-ws")
 	@CircuitBreaker(name = "albums-ws", fallbackMethod = "getAlbumsFallback")
 	public List<AlbumResponseModel> getAlbums(@PathVariable String id);
 

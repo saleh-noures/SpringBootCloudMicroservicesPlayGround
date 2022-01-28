@@ -21,7 +21,7 @@
         - Passwords are encrypted in the database
         - Using Spring BCryptPasswordEncoder
  ## E- Feign Http Clint 
-         - Feign is used for the internal communications between the Microservices FeignErrorDecoder
+         - Feign is used for the internal communications between the Microservices
          - Feign ErrorDecoder is used to handle the errors 
  ## F- Resilience4j. 
          Two modules are used in this project

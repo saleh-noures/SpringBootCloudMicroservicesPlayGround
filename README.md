@@ -17,8 +17,17 @@
         -The AuthenticationFilter in UserClient will create the Token using the "token.secret" property after a successfull login, add it to the header with Key "token", and then send it back to the user
         -The user will use the token in the subsequent requests by adding it to the header under Key "Authorization" and Value "Bearer  token_text"
          then the API GateWay will use the same "token.secret" to ensure the JWT is valid before forwarding it to the Microservices
-
-## C-URLS
+ ## D-Password Encryption
+        - Passwords are encrypted in the database
+        - Using Spring BCryptPasswordEncoder
+ ## E- Feign Http Clint 
+         - Feign is used for the internal communications between the Microservices FeignErrorDecoder
+         - Feign ErrorDecoder is used to handle the errors 
+ ## F- Resilience4j. Two modules are used in this project
+         - Circuit Breaker 
+         - Retry
+         
+ ## C-URLS
         -To create a user --> POST http://localhost:8082/users-ws/users/ and the payload is
             {
             "firstName":"Saleh",
@@ -40,12 +49,7 @@
         -To get a user and his albums (Using Feign Http Client) --> GET http://localhost:8082/users-ws/users/{userID} and in the header add
           Key: Authorization
           Value: Bearer JWT_Token
+         -To check the Circuit Breaker events log through the Actuator-- > Get http://localhost:8082/users-ws/actuator/circuitbreakerevents
         
- ## D-Password Encryption
-        - Passwords are encrypted in the database
-        - Using Spring BCryptPasswordEncoder
- ## E- Feign Http Clint 
-         - Feign is used for the internal communications between the Microservices FeignErrorDecoder
-         - Feign ErrorDecoder is used to handle the errors 
          
          

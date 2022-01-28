@@ -23,7 +23,8 @@
  ## E- Feign Http Clint 
          - Feign is used for the internal communications between the Microservices FeignErrorDecoder
          - Feign ErrorDecoder is used to handle the errors 
- ## F- Resilience4j. Two modules are used in this project
+ ## F- Resilience4j. 
+         Two modules are used in this project
          - Circuit Breaker 
          - Retry
          
@@ -49,7 +50,7 @@
         -To get a user and his albums (Using Feign Http Client) --> GET http://localhost:8082/users-ws/users/{userID} and in the header add
           Key: Authorization
           Value: Bearer JWT_Token
-         -To check the Circuit Breaker events log through the Actuator-- > Get http://localhost:8082/users-ws/actuator/circuitbreakerevents
+        -To check the Circuit Breaker events log through the Actuator-- > Get http://localhost:8082/users-ws/actuator/circuitbreakerevents
         
          
          

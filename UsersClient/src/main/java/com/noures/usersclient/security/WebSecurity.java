@@ -4,6 +4,7 @@ import com.noures.usersclient.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -32,8 +33,10 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.authorizeRequests()
-                .antMatchers("/actuator/**").permitAll()
-                .antMatchers("/users/**").permitAll().and().addFilter(getAuthenticationFilter());
+                .antMatchers(HttpMethod.GET, "/actuator/health").permitAll()
+                .antMatchers(HttpMethod.GET, "/actuator/circuitbreakerevents").permitAll()
+                .antMatchers("/users/**").permitAll()
+                .and().addFilter(getAuthenticationFilter());
 
         /** THis will permit/allow only the requests from the API Gateway to reach the Microservice **/
         //http.authorizeRequests().antMatchers("/**").hasIpAddress(environment.getProperty("gateway.ip")).and().addFilter(getAuthenticationFilter());

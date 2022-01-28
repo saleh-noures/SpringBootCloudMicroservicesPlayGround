@@ -2,70 +2,33 @@ package com.noures.usersclient.data;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.noures.usersclient.ui.model.AlbumResponseModel;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-//import com.appsdeveloperblog.photoapp.api.users.ui.model.AlbumResponseModel;
 
-//import feign.FeignException;
-//import feign.hystrix.FallbackFactory;
-
-@FeignClient(name = "albums-ws")//, fallbackFactory = AlbumsFallbackFactory.class)
+@FeignClient(name = "albums-ws")
 public interface AlbumsServiceClient {
 
-
 	/** You create the interface and Spring Framework will provide the implementation **/
-	/** To Test FeignErrorDecoder change to /users/{id}/albumsss**/
+	/** To Test FeignErrorDecoder change to /users/{id}/albumsss or stop albums Microservice **/
 	@GetMapping("/users/{id}/albums")
+	@CircuitBreaker(name = "albums-ws", fallbackMethod = "getAlbumsFallback")
 	public List<AlbumResponseModel> getAlbums(@PathVariable String id);
-}
 
-
-
-
-
-/*
-
-@Component
-class AlbumsFallbackFactory implements FallbackFactory<AlbumsServiceClient> {
-
-	@Override
-	public AlbumsServiceClient create(Throwable cause) {
-		// TODO Auto-generated method stub
-		return new AlbumsServiceClientFallback(cause);
-	}
-
-}
-
-class AlbumsServiceClientFallback implements AlbumsServiceClient {
-
-	Logger logger = LoggerFactory.getLogger(this.getClass());
-
-	private final Throwable cause;
-
-	public AlbumsServiceClientFallback(Throwable cause) {
-		this.cause = cause;
-	}
-
-	@Override
-	public List<AlbumResponseModel> getAlbums(String id) {
-		// TODO Auto-generated method stub
-
-		if (cause instanceof FeignException && ((FeignException) cause).status() == 404) {
-			logger.error("404 error took place when getAlbums was called with userId: " + id + ". Error message: "
-					+ cause.getLocalizedMessage());
-		} else {
-			logger.error("Other error took place: " + cause.getLocalizedMessage());
-		}
-
+	/*
+	Some rules when defining fallback methods
+	1- Should have the same signature (return type and parameters) like the original method (getAlbums)
+	2- Should be placed in the same interface/class as the original method
+	3- if you have more fallback Methods with different exceptions, the one with the more specific exception one will be executed
+	*/
+	default List<AlbumResponseModel> getAlbumsFallback(String id, Throwable exception){
+		System.out.println("Param = " + id);
+		System.out.println("Exception took place: " + exception.getMessage());
 		return new ArrayList<>();
 	}
 
 }
-*/
+

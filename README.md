@@ -1,17 +1,22 @@
 # Spring Boot, Cloud, and Microservices Sample Project
 ## A-How to run:
-###    1-Install RabbitMQ, then start RabbitMQ:
+ ###    1-Install RabbitMQ, then start RabbitMQ:
         -Open RabbitMQ Command Prompt
         -Execute "set HOMEDRIVE=C:\Users\nouressaleh\rabbitmqConf"
         -Execute "rabbitmq-plugins.bat enable rabbitmq_management"
         -Execute "rabbitmq-server"
         -To verify the RabbitMQ is working, open http://localhost:15672/ . use username:guest Password:guest.
-###    2-Start the servers in this order:
+ ###    2-Start the servers in this order:
         -Configuration Server
         -Discovery Server
         -Microservices
         -API Gateway
-## B-Jason Web Token (JWT)
+## B-Microservices
+There are 3 dummy Microservices in this project
+        -users-ws
+        -albums-ws
+        -account-ws
+## C-Jason Web Token (JWT)
         -JWT is used as users authentication mechanism
         -After Creating a user, the user will need to login to get a Json Web Token (JWT) to be authenticated for the subsequent requests.
         -The AuthenticationFilter in UserClient will create the Token using the "token.secret" property after a successfull login, add it to the header with Key "token", and then send it back to the user
@@ -28,7 +33,7 @@
          - Circuit Breaker 
          - Retry
          
- ## C-URLS
+ ## G-URLS
         -To create a user --> POST http://localhost:8082/users-ws/users/ and the payload is
             {
             "firstName":"Saleh",

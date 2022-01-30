@@ -38,7 +38,13 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- This is required to push config changes to Microservices-->
+        <!-- This is required to allow the Microservices talk to the config server-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <!-- This dependency is required for the Advanced Message Queue Protocol(amqp)/RabbitMQ  -->
+        <!-- and push config changes to Microservices-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bus-amqp</artifactId>

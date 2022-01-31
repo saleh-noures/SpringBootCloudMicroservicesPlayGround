@@ -7,8 +7,8 @@
         -Execute "rabbitmq-server"
         -To verify the RabbitMQ is working, open http://localhost:15672/ . use username:guest Password:guest.
  ###    2-Start the servers in this order:
-        -Configuration Server
         -Discovery Server
+        -Configuration Server
         -Microservices
         -API Gateway
 ## B-Microservices
@@ -57,6 +57,13 @@
           Key: Authorization
           Value: Bearer JWT_Token
         -To check the Circuit Breaker events log through the Actuator-- > Get http://localhost:8082/users-ws/actuator/circuitbreakerevents
-        
+    
+ ## G-Spring Boot Run Dashboard (Services)
+    To manage all the Servers in one palce using the Run Dashboard
+    1- Open one of the servers in Intellij - Maybe the Discovery Server.
+    2- View --> Tool Windows --> Sevices --> Add Sevice --> Run Configuration Type --> Spring Boot
+    3- View --> Tool Windows --> Add Maven Projects --> Select the POM.xml for the all other servers
+    ![Spring Boot Run  Dashboard](https://user-images.githubusercontent.com/25222121/151729513-f9a898fd-0ac6-40d6-9510-182f8d3fa120.jpg)
+
          
          

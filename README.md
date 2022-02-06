@@ -59,7 +59,9 @@
         -To check the Circuit Breaker events log through the Actuator-- > Get http://localhost:8082/users-ws/actuator/circuitbreakerevents
  ## Sleuth and Zipkin
          -Spring Cloud Sleuth is used to generate and attach the trace id, span id to the logs so that these can then be used by tools like Zipkin and ELK for storage and analysis.        
-         -Zipkin is a distributed tracing system. It helps gather timing data needed to troubleshoot latency problems in service architectures.
+         -Zipkin is a distributed tracing system. It helps gather timing data needed to troubleshoot latency problems in service architectures
+         - To download and install Zipkin --> https://zipkin.io/pages/quickstart.html 
+         - To access Zipkin --> http://localhost:9411/zipkin/
  
  ## H-Spring Boot Run Dashboard (Services)
     To manage all the Servers in one palce using the Run Dashboard

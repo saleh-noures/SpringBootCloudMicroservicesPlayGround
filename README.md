@@ -57,12 +57,17 @@
           Key: Authorization
           Value: Bearer JWT_Token
         -To check the Circuit Breaker events log through the Actuator-- > Get http://localhost:8082/users-ws/actuator/circuitbreakerevents
-    
- ## G-Spring Boot Run Dashboard (Services)
+ ## Sleuth and Zipkin
+         -Spring Cloud Sleuth is used to generate and attach the trace id, span id to the logs so that these can then be used by tools like Zipkin and ELK for storage and analysis.        
+         -Zipkin is a distributed tracing system. It helps gather timing data needed to troubleshoot latency problems in service architectures.
+ 
+ ## H-Spring Boot Run Dashboard (Services)
     To manage all the Servers in one palce using the Run Dashboard
     1- Open one of the servers in Intellij - Maybe the Discovery Server.
     2- View --> Tool Windows --> Sevices --> Add Sevice --> Run Configuration Type --> Spring Boot
     3- View --> Tool Windows --> Add Maven Projects --> Select the POM.xml for the all other servers
 
 ![Spring Boot Run  Dashboard](https://user-images.githubusercontent.com/25222121/151729513-f9a898fd-0ac6-40d6-9510-182f8d3fa120.jpg)        
+
+
          

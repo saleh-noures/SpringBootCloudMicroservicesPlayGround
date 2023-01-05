@@ -2,9 +2,9 @@
 ## A-How to run:
  ###    1-Install RabbitMQ, then start RabbitMQ:
         -Open RabbitMQ Command Prompt
-        -Execute "set HOMEDRIVE=C:\Users\nouressaleh\rabbitmqConf"
-        -Execute "rabbitmq-plugins.bat enable rabbitmq_management"
-        -Execute "rabbitmq-server"
+        -Run "set HOMEDRIVE=C:\Users\nouressaleh\rabbitmqConf"
+        -Run "rabbitmq-plugins.bat enable rabbitmq_management"
+        -Run "rabbitmq-server"
         -To verify the RabbitMQ is working, open http://localhost:15672/ . use username:guest Password:guest.
  ###    2-Start the servers in this order:
         -Discovery Server

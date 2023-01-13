@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface AlbumsServiceClient {
 
 	/** You create the interface and Spring Framework will provide the implementation **/
-	/** To Test FeignErrorDecoder change to /users/{id}/albumsss or stop albums Microservice **/
-	/** If you use Retry alone with the Circuit Breaker then you need to add fallbackMethod attribute to Retry **/
+	/** To Test FeignErrorDecoder class under shared package change to /users/{id}/albumsss or stop albums Microservice **/
+	/** If you use Retry alone with the Circuit Breaker then you don't need to add fallbackMethod attribute to Retry **/
 	@GetMapping("/users/{id}/albums")
-	@Retry(name = "albums-ws")
-	@CircuitBreaker(name = "albums-ws", fallbackMethod = "getAlbumsFallback")
+	@Retry(name = "albums-ws") // See the retry properties in application.properties
+	@CircuitBreaker(name = "albums-ws", fallbackMethod = "getAlbumsFallback") // See the CircuitBreaker properties in application.properties
 	public List<AlbumResponseModel> getAlbums(@PathVariable String id);
 
 	/*

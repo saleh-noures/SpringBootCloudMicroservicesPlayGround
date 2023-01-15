@@ -27,7 +27,7 @@ public class UsersController {
 	@GetMapping("/status/check")
 	public String status()
 	{
-		return "It is Working on port:" + env.getProperty("local.server.port") + " With token =" + env.getProperty("token.secret");
+		return "It is Working on port:" + env.getProperty("local.server.port") + " With token =" + env.getProperty("token.secret") + " GitHub push.test.prop =" + env.getProperty("push.test.prop");
 	}
 
 	// JSON is enabled by default. To enable XML add "com.fasterxml.jackson.dataformat" to the POM's dependencies

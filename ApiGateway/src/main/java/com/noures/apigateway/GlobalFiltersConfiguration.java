@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import reactor.core.publisher.Mono;
-//THis class contains both the pre- and post- Filters in one place
+/* This class contains both the pre- and post- Filters in one place */
 @Configuration
 public class GlobalFiltersConfiguration {
 	

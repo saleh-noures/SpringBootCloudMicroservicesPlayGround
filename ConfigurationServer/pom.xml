@@ -27,10 +27,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-config-server</artifactId>
-        </dependency>
         <!-- This dependency is required for the Advanced Message Queue Protocol(amqp)/RabbitMQ  -->
         <!-- and push config changes to Microservices-->
         <dependency>

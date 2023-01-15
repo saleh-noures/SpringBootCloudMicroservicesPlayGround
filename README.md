@@ -7,8 +7,8 @@
         -Run "rabbitmq-server"
         -To verify the RabbitMQ is working, open http://localhost:15672/ . use username:guest Password:guest.
  ###    2-Start the servers in this order:
-        -Discovery Server (URL:http://localhost:8010, User:user1/user1)
         -Configuration Server
+        -Discovery Server (URL:http://localhost:8010, User:user1/user1)
         -Microservices
         -API Gateway
 ## B-Microservices

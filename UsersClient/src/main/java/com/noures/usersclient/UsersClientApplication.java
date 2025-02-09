@@ -26,7 +26,7 @@ public class UsersClientApplication {
     }
 
     /* RestTemplate is a Http client used for Http internal communications between Microservices that support load balancing.
-     @LoadBalanced will enable the load balancing */
+     @LoadBalanced will enable the client side load balancing */
     @Bean
     @LoadBalanced
     public RestTemplate getRestTemplate()

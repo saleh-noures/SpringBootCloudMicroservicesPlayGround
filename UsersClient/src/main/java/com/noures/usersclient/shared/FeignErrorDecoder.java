@@ -29,6 +29,7 @@ public class FeignErrorDecoder implements ErrorDecoder {
 			break;
 		case 404: {
 			if (methodKey.contains("getAlbums")) {
+				// ResponseStatusException is an exception class provided by Spring Framework
 				return new ResponseStatusException(HttpStatus.valueOf(response.status()), environment.getProperty("albums.exceptions.albums-not-found"));
 			}
 			break;

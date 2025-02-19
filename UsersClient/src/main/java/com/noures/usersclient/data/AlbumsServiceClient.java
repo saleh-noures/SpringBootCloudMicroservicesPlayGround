@@ -25,7 +25,8 @@ public interface AlbumsServiceClient {
 	Some rules when defining fallback methods
 	1- Should have the same signature (return type and parameters) like the original method (getAlbums)
 	2- Should be placed in the same interface/class as the original method
-	3- if you have more fallback Methods with different exceptions, the one with the more specific exception one will be executed
+	3- if you have more than one fallback Methods for the same method (getAlbums) with different exceptions, the one with the more specific exception one will be executed.
+	   in the example below the getAlbumsFallback will be called for all exceptions as 'exception' is a Throwable object.
 	*/
 	default List<AlbumResponseModel> getAlbumsFallback(String id, Throwable exception){
 		System.out.println("Param = " + id);

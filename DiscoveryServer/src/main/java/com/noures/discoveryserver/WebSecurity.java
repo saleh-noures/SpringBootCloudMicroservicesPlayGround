@@ -9,6 +9,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 	
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        //This is required to secure Eureka wit username and password
         http
                 .csrf()
                 .disable()

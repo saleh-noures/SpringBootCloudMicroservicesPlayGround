@@ -5,6 +5,9 @@
         -Run "rabbitmq-plugins enable rabbitmq_management"
         -Run "rabbitmq-server" Or click on the "RabbitMQ Service - Start"
         -To verify the RabbitMQ is working, open http://localhost:15672/ . use username:guest Password:guest.
+		
+		You can also or download and use the RabbitMQ docker image rather than installing it. You can run a contaier from the image using this command:
+		docker run -d --hostname my-rabbit --name some-rabbit -p 5672:5672 rabbitmq:3
  ###    2-Start the servers in this order:
         -Configuration Server
         -Discovery Server (URL:http://localhost:8010, User:user1/user1)
